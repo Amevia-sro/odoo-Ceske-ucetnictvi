@@ -2,6 +2,7 @@
     'name' : 'Czech Republic - Accounting',
     'version' : '1.0',
     'category': 'Localization',
+    'author': 'Amevia s.r.o.',
     'description': """
 This is the module to manage the accounting chart for Czech Republic in Odoo.
 ==================================================================================
