@@ -22,4 +22,7 @@ This is the module to manage the accounting chart for Czech Republic in Odoo.
         'views/account_tax_view.xml',
         'views/product_view.xml',
     ],
+    'images': [
+        'static/description/logo.png',
+    ],
 }
