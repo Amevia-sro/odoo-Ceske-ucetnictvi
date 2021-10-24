@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Taxes -->
+        <record id="basic_21" model="account.tax.template">
+            <field name="amount">21</field>
+            <field name="amount_type">percent</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">Základní sazba</field>
+            <field name="type_tax_use">sale</field>
+            <field name="description">DPH 21%</field>
+            <field name="rate_type">basic</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_sales_zakladna_basic')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_sales_dan_basic')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_sales_zakladna_basic')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_sales_dan_basic')],
+                })]"/>
+        </record>
+
+        <record id="first_reduced_15" model="account.tax.template">
+            <field name="amount">15</field>
+            <field name="amount_type">percent</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">1 Snížená sazba DPH</field>
+            <field name="type_tax_use">sale</field>
+            <field name="description">DPH 15%</field>
+            <field name="rate_type">first_reduced</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_sales_zakladna_first_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_sales_dan_first_reduced')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_sales_zakladna_first_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_sales_dan_first_reduced')],
+                })]"/>
+        </record>
+
+        <record id="second_reduced_10" model="account.tax.template">
+            <field name="amount">10</field>
+            <field name="amount_type">percent</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">2 Snížená sazba DPH</field>
+            <field name="type_tax_use">sale</field>
+            <field name="description">DPH 10%</field>
+            <field name="rate_type">second_reduced</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_sales_zakladna_second_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_sales_dan_second_reduced')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_sales_zakladna_second_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_sales_dan_second_reduced')],
+                })]"/>
+        </record>
+
+        <record id="purchase_basic_21" model="account.tax.template">
+            <field name="amount">21</field>
+            <field name="amount_type">percent</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">Základní sazba nákup</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="description">DPH 21%</field>
+            <field name="rate_type">basic</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_purchase_zakladna_basic')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_purchase_dan_basic')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_purchase_zakladna_basic')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_purchase_dan_basic')],
+                })]"/>
+        </record>
+
+        <record id="purchase_first_reduced_15" model="account.tax.template">
+            <field name="amount">15</field>
+            <field name="amount_type">percent</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">1 Snížená sazba nákup DPH</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="description">DPH 15%</field>
+            <field name="rate_type">first_reduced</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_purchase_zakladna_first_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_purchase_dan_first_reduced')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_purchase_zakladna_first_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_purchase_dan_first_reduced')],
+                })]"/>
+        </record>
+
+        <record id="purchase_second_reduced_10" model="account.tax.template">
+            <field name="amount">10</field>
+            <field name="amount_type">percent</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">2 Snížená sazba nákup DPH</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="description">DPH 10%</field>
+            <field name="rate_type">second_reduced</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_purchase_zakladna_second_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_purchase_dan_second_reduced')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_purchase_zakladna_second_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_purchase_dan_second_reduced')],
+                })]"/>
+        </record>
+
+        <record id="tax_exempted" model="account.tax.template">
+            <field name="amount">0</field>
+            <field name="amount_type">percent</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">Osvobozeno</field>
+            <field name="type_tax_use">sale</field>
+            <field name="description">Bez DPH</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_exempt')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_exempt')],
+                })]"/>
+        </record>
+
+        <record id="purchase_tax_exempt" model="account.tax.template">
+            <field name="amount">0</field>
+            <field name="amount_type">percent</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">Osvobozeno nákup</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="description">Nákup Bez DPH</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_purchase_exempt')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_purchase_exempt')],
+                })]"/>
+        </record>
+
+        <record id="eu_delivery_zero_tax" model="account.tax.template">
+            <field name="amount">0</field>
+            <field name="amount_type">percent</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">0% bezcelní výhoda EU</field>
+            <field name="type_tax_use">sale</field>
+            <field name="description">0% DPH EU</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_eu_delivery')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_eu_delivery')],
+                })]"/>
+        </record>
+
+        <record id="purchase_eu_tax_21" model="account.tax.template">
+            <field name="amount_type">percent</field>
+            <field name="amount">21</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">DPH EU 21% nákup</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="description">DPH EU 21%</field>
+            <field name="rate_type">basic</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_eu_purchase_zakladna_basic'), ref('account_tax_report_line_purchase_zakladna_basic_92a')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_eu_purchase_dan_basic')],
+                }),
+                (0, 0, {
+                'factor_percent': -100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_purchase_dan_basic_92a')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_eu_purchase_zakladna_basic'), ref('account_tax_report_line_purchase_zakladna_basic_92a')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_eu_purchase_dan_basic')],
+                }),
+                (0, 0, {
+                'factor_percent': -100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_purchase_dan_basic_92a')],
+                })]"/>
+        </record>
+
+        <record id="purchase_eu_tax_15" model="account.tax.template">
+            <field name="amount_type">percent</field>
+            <field name="amount">15</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">DPH EU 15% nákup</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="description">DPH EU 15%</field>
+            <field name="rate_type">first_reduced</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_eu_purchase_zakladna_first_reduced'), ref('account_tax_report_line_purchase_zakladna_first_reduced_92a')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_eu_purchase_dan_first_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': -100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_purchase_dan_first_reduced_92a')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_eu_purchase_zakladna_first_reduced'), ref('account_tax_report_line_purchase_zakladna_first_reduced_92a')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_eu_purchase_dan_first_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': -100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_purchase_dan_first_reduced_92a')],
+                })]"/>
+        </record>
+
+        <record id="purchase_eu_tax_10" model="account.tax.template">
+            <field name="amount_type">percent</field>
+            <field name="amount">10</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">DPH EU 10% Nákup</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="description">DPH EU 10%</field>
+            <field name="rate_type">second_reduced</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_eu_purchase_zakladna_second_reduced'), ref('account_tax_report_line_purchase_zakladna_second_reduced_92a')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_eu_purchase_dan_second_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': -100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_purchase_dan_second_reduced_92a')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_eu_purchase_zakladna_second_reduced'), ref('account_tax_report_line_purchase_zakladna_second_reduced_92a')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_eu_purchase_dan_second_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': -100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_purchase_dan_second_reduced_92a')],
+                })]"/>
+        </record>
+
+        <record id="purchase_basic_deduction_21" model="account.tax.template">
+            <field name="amount">21</field>
+            <field name="amount_type">percent</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">Odpočet DPH (21%)</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="description">Odpočet DPH 21%</field>
+            <field name="rate_type">basic</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_deduction_zakladna_basic')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_deduction_dan_basic')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_deduction_zakladna_basic')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_deduction_dan_basic')],
+                })]"/>
+        </record>
+
+        <record id="purchase_basic_deduction_15" model="account.tax.template">
+            <field name="amount">15</field>
+            <field name="amount_type">percent</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">Odpočet DPH (15%)</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="description">Odpočet DPH 15%</field>
+            <field name="rate_type">first_reduced</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_deduction_zakladna_first_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_deduction_dan_first_reduced')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_deduction_zakladna_first_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_deduction_dan_first_reduced')],
+                })]"/>
+        </record>
+
+        <record id="purchase_basic_deduction_10" model="account.tax.template">
+            <field name="amount">10</field>
+            <field name="amount_type">percent</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">Odpočet DPH (10%)</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="description">Odpočet DPH 10%</field>
+            <field name="rate_type">second_reduced</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_deduction_zakladna_second_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'plus_report_line_ids': [ref('account_tax_report_line_deduction_dan_second_reduced')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_deduction_zakladna_second_reduced')],
+                }),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'tax',
+                'account_id': ref('chart343'),
+                'minus_report_line_ids': [ref('account_tax_report_line_deduction_dan_second_reduced')],
+                })]"/>
+        </record>
+
+        <record id="special_investment_gold" model="account.tax.template">
+            <field name="amount">0</field>
+            <field name="amount_type">percent</field>
+            <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+            <field name="name">Uskutečněná plnění ve zvláštním režimu pro investiční zlato podle § 101c písm. c) bod 2</field>
+            <field name="type_tax_use">sale</field>
+            <field name="description">Investiční Zlato 0%</field>
+            <field name="invoice_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'plus_report_line_ids': [ref('account_tax_report_line_gold_investment_zakladna')],
+                })]"/>
+            <field name="refund_repartition_line_ids" eval="[(5, 0, 0),
+                (0, 0, {
+                'factor_percent': 100,
+                'repartition_type': 'base',
+                'minus_report_line_ids': [ref('account_tax_report_line_gold_investment_zakladna')],
+                })]"/>
+        </record>
+    </data>
+</odoo>

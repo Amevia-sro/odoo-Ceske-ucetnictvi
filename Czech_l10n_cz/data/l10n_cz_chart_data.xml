@@ -1,0 +1,2325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Account Types -->
+    <record model="account.account.type" id="account_type_cz_assets">
+        <field name="name">Aktivní</field>
+        <field name="internal_group">asset</field>
+    </record>
+
+    <record model="account.account.type" id="account_type_cz_liabilities">
+        <field name="name">Pasivní</field>
+        <field name="internal_group">liability</field>
+    </record>
+
+    <record model="account.account.type" id="account_type_cz_depreciation">
+        <field name="name">Aktivní i Pasivní</field>
+        <field name="internal_group">liability</field>
+    </record>
+
+    <record model="account.account.type" id="account_type_cz_expense">
+        <field name="name">Nákladový</field>
+        <field name="internal_group">expense</field>
+    </record>
+
+    <record model="account.account.type" id="account_type_cz_revenue">
+        <field name="name">Výnosový</field>
+        <field name="internal_group">income</field>
+    </record>
+
+    <record model="account.account.type" id="account_type_cz_closing">
+        <field name="name">Závěrkový</field>
+        <field name="internal_group">off_balance</field>
+    </record>
+
+    <record model="account.account.type" id="account_type_cz_off_sheet">
+        <field name="name">Off-Balance Sheet</field>
+        <field name="internal_group">off_balance</field>
+    </record>
+
+    <!-- Chart template -->
+    <record id="czech_chart_template" model="account.chart.template">
+        <field name="name">Czech Republic - Chart of Accounts</field>
+        <field name="code_digits">3</field>
+        <field name="bank_account_code_prefix">22</field>
+        <field name="cash_account_code_prefix">21</field>
+        <field name="transfer_account_code_prefix">0</field>
+        <field name="currency_id" ref="base.CZK"/>
+    </record>
+
+    <record id="chart012" model="account.account.template">
+        <field name="code">012</field>
+        <field name="name">Nehmotné výsledky výzkumu a vývoje</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_01"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart013" model="account.account.template">
+        <field name="code">013</field>
+        <field name="name">Software</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_01"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart014" model="account.account.template">
+        <field name="code">014</field>
+        <field name="name">Ocenitelná práva</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_01"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart015" model="account.account.template">
+        <field name="code">015</field>
+        <field name="name">Goodwill</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_01"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart019" model="account.account.template">
+        <field name="code">019</field>
+        <field name="name">Jiný dlouhodobý nehmotný majetek</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_01"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart021" model="account.account.template">
+        <field name="code">021</field>
+        <field name="name">Stavby</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_02"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart022" model="account.account.template">
+        <field name="code">022</field>
+        <field name="name">Samostatné movité věci a soubory movitýchvěcí</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_02"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart025" model="account.account.template">
+        <field name="code">025</field>
+        <field name="name">Pěstitelské celky trvalých porostů</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_02"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart026" model="account.account.template">
+        <field name="code">026</field>
+        <field name="name">Dospělá zvířata a jejich skupiny</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_02"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart029" model="account.account.template">
+        <field name="code">029</field>
+        <field name="name">Jiný dlouhodobý hmotný majetek</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_02"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart031" model="account.account.template">
+        <field name="code">031</field>
+        <field name="name">Pozemky</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_03"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart032" model="account.account.template">
+        <field name="code">032</field>
+        <field name="name">Umělecká díla a sbírky</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_03"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart041" model="account.account.template">
+        <field name="code">041</field>
+        <field name="name">Pořízení dlouhodobého nehmotného majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_04"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart042" model="account.account.template">
+        <field name="code">042</field>
+        <field name="name">Pořízení dlouhodobého hmotného majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_04"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart051" model="account.account.template">
+        <field name="code">051</field>
+        <field name="name">Poskytnuté zálohy na dlouhodobý nehmotný majetek</field>
+        <field name="user_type_id" ref="account.data_account_type_prepayments"/>
+        <field name="group_id" ref="l10n_cz.account_group_05"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart052" model="account.account.template">
+        <field name="code">052</field>
+        <field name="name">Poskytnuté zálohy na dlouhodobý hmotný majetek</field>
+        <field name="user_type_id" ref="account.data_account_type_prepayments"/>
+        <field name="group_id" ref="l10n_cz.account_group_05"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart053" model="account.account.template">
+        <field name="code">053</field>
+        <field name="name">Poskytnuté zálohy na dlouhodobý finanční majetek</field>
+        <field name="user_type_id" ref="account.data_account_type_prepayments"/>
+        <field name="group_id" ref="l10n_cz.account_group_05"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart061" model="account.account.template">
+        <field name="code">061</field>
+        <field name="name">Podíly v ovládaných a řízených osobách</field>
+        <field name="user_type_id" ref="account.data_account_type_equity"/>
+        <field name="group_id" ref="l10n_cz.account_group_06"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart062" model="account.account.template">
+        <field name="code">062</field>
+        <field name="name">Podíly v účetních jednotkách pod podstatným vlivem</field>
+        <field name="user_type_id" ref="account.data_account_type_equity"/>
+        <field name="group_id" ref="l10n_cz.account_group_06"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart063" model="account.account.template">
+        <field name="code">063</field>
+        <field name="name">Ostatní cenné papíry a podíly</field>
+        <field name="user_type_id" ref="account.data_account_type_equity"/>
+        <field name="group_id" ref="l10n_cz.account_group_06"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart065" model="account.account.template">
+        <field name="code">065</field>
+        <field name="name">Dluhové cenné papíry držené do splatnosti</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_06"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart066" model="account.account.template">
+        <field name="code">066</field>
+        <field name="name">Půjčky a úvěry - ovládající a řídící osoby, podstatný vliv</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_06"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart067" model="account.account.template">
+        <field name="code">067</field>
+        <field name="name">Ostatní půjčky</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_06"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart069" model="account.account.template">
+        <field name="code">069</field>
+        <field name="name">Jiný dlouhodobý finanční majetek</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_06"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart072" model="account.account.template">
+        <field name="code">072</field>
+        <field name="name">Oprávky k nehmotným výsledkům výzkumu a vývoje</field>
+        <field name="user_type_id" ref="account.data_account_type_depreciation"/>
+        <field name="group_id" ref="l10n_cz.account_group_07"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart073" model="account.account.template">
+        <field name="code">073</field>
+        <field name="name">Oprávky k softwaru</field>
+        <field name="user_type_id" ref="account.data_account_type_depreciation"/>
+        <field name="group_id" ref="l10n_cz.account_group_07"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart074" model="account.account.template">
+        <field name="code">074</field>
+        <field name="name">Oprávky k ocenitelným právům</field>
+        <field name="user_type_id" ref="account.data_account_type_depreciation"/>
+        <field name="group_id" ref="l10n_cz.account_group_07"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart075" model="account.account.template">
+        <field name="code">075</field>
+        <field name="name">Oprávky ke goodwillu</field>
+        <field name="user_type_id" ref="account.data_account_type_depreciation"/>
+        <field name="group_id" ref="l10n_cz.account_group_07"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart079" model="account.account.template">
+        <field name="code">079</field>
+        <field name="name">Oprávky k jinému dlouhodobému nehmotnému majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_depreciation"/>
+        <field name="group_id" ref="l10n_cz.account_group_07"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart081" model="account.account.template">
+        <field name="code">081</field>
+        <field name="name">Oprávky ke stavbám</field>
+        <field name="user_type_id" ref="account.data_account_type_depreciation"/>
+        <field name="group_id" ref="l10n_cz.account_group_08"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart082" model="account.account.template">
+        <field name="code">082</field>
+        <field name="name">Oprávky k samost. movitým věcem a souborům movitých věcí</field>
+        <field name="user_type_id" ref="account.data_account_type_depreciation"/>
+        <field name="group_id" ref="l10n_cz.account_group_08"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart085" model="account.account.template">
+        <field name="code">085</field>
+        <field name="name">Oprávky k pěstitelským celkům trvalých porostů</field>
+        <field name="user_type_id" ref="account.data_account_type_depreciation"/>
+        <field name="group_id" ref="l10n_cz.account_group_08"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart086" model="account.account.template">
+        <field name="code">086</field>
+        <field name="name">Oprávky k základnímu stádu a tažným zvířatům</field>
+        <field name="user_type_id" ref="account.data_account_type_depreciation"/>
+        <field name="group_id" ref="l10n_cz.account_group_08"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart089" model="account.account.template">
+        <field name="code">089</field>
+        <field name="name">Oprávky k jinému dlouhodobému hmotnému majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_depreciation"/>
+        <field name="group_id" ref="l10n_cz.account_group_08"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart091" model="account.account.template">
+        <field name="code">091</field>
+        <field name="name">Opravná položka k dlouhodobému nehmotnému majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_09"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart092" model="account.account.template">
+        <field name="code">092</field>
+        <field name="name">Opravná položka k dlouhodobému hmotnému majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_09"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart093" model="account.account.template">
+        <field name="code">093</field>
+        <field name="name">Opravná položka k dlouhodobému nedokončenému nehmotnému majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_09"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart094" model="account.account.template">
+        <field name="code">094</field>
+        <field name="name">Opravná položka k dlouhodobému nedokončenému hmotnému majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_09"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart095" model="account.account.template">
+        <field name="code">095</field>
+        <field name="name">Opravná položka k poskytnutým zálohám na dlouhodobý majetek</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_09"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart096" model="account.account.template">
+        <field name="code">096</field>
+        <field name="name">Opravná položka k dlouhodobému finančnímu majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_09"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart097" model="account.account.template">
+        <field name="code">097</field>
+        <field name="name">Oceňovací rozdíl k nabytému majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_09"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart098" model="account.account.template">
+        <field name="code">098</field>
+        <field name="name">Oprávky k oceňovacímu rozdílu k nabytému majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_depreciation"/>
+        <field name="group_id" ref="l10n_cz.account_group_09"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart111" model="account.account.template">
+        <field name="code">111</field>
+        <field name="name">Pořízení materiálu</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_11"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart112" model="account.account.template">
+        <field name="code">112</field>
+        <field name="name">Materiál na skladě</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_11"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart119" model="account.account.template">
+        <field name="code">119</field>
+        <field name="name">Materiál na cestě</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_11"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart121" model="account.account.template">
+        <field name="code">121</field>
+        <field name="name">Nedokončená výroba</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_12"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart122" model="account.account.template">
+        <field name="code">122</field>
+        <field name="name">Polotovary vlastní výroby</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_12"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart123" model="account.account.template">
+        <field name="code">123</field>
+        <field name="name">Výrobky</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_12"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart124" model="account.account.template">
+        <field name="code">124</field>
+        <field name="name">Mladá a ostatní zvířata a jejich skupiny</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_12"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart131" model="account.account.template">
+        <field name="code">131</field>
+        <field name="name">Pořízení zboží</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_13"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart132" model="account.account.template">
+        <field name="code">132</field>
+        <field name="name">Zboží na skladě a v prodejnách</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_13"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart139" model="account.account.template">
+        <field name="code">139</field>
+        <field name="name">Zboží na cestě</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_13"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart151" model="account.account.template">
+        <field name="code">151</field>
+        <field name="name">Poskytnuté zálohy na materiál</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_15"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart152" model="account.account.template">
+        <field name="code">152</field>
+        <field name="name">Poskytnuté zálohy na zvířata</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_15"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart153" model="account.account.template">
+        <field name="code">153</field>
+        <field name="name">Poskytnuté zálohy na zboží</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_15"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart191" model="account.account.template">
+        <field name="code">191</field>
+        <field name="name">Opravná položka k materiálu</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_19"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart192" model="account.account.template">
+        <field name="code">192</field>
+        <field name="name">Opravná položka k nedokončené výrobě</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_19"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart193" model="account.account.template">
+        <field name="code">193</field>
+        <field name="name">Opravná položka k polotovarům vlastní výroby</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_19"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart194" model="account.account.template">
+        <field name="code">194</field>
+        <field name="name">Opravná položka k výrobkům</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_19"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart195" model="account.account.template">
+        <field name="code">195</field>
+        <field name="name">Opravná položka ke zvířatům</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_19"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart196" model="account.account.template">
+        <field name="code">196</field>
+        <field name="name">Opravná položka ke zboží</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_19"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart197" model="account.account.template">
+        <field name="code">197</field>
+        <field name="name">Opravná položka k zálohám na materiál</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_19"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart198" model="account.account.template">
+        <field name="code">198</field>
+        <field name="name">Opravná položka k zálohám na zboží</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_19"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart199" model="account.account.template">
+        <field name="code">199</field>
+        <field name="name">Opravná položka k zálohám na zvířata</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_19"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart213" model="account.account.template">
+        <field name="code">213</field>
+        <field name="name">Ceniny</field>
+        <field name="user_type_id" ref="account.data_account_type_liquidity"/>
+        <field name="group_id" ref="l10n_cz.account_group_21"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart231" model="account.account.template">
+        <field name="code">231</field>
+        <field name="name">Krátkodobé bankovní úvěry</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_23"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart232" model="account.account.template">
+        <field name="code">232</field>
+        <field name="name">Eskontní úvěry</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_23"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart241" model="account.account.template">
+        <field name="code">241</field>
+        <field name="name">Emitované krátkodobé dluhopisy</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_24"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart249" model="account.account.template">
+        <field name="code">249</field>
+        <field name="name">Ostatní krátkodobé finanční výpomoci</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_24"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart251" model="account.account.template">
+        <field name="code">251</field>
+        <field name="name">Registrované majetkové cenné papíry k obchodování</field>
+        <field name="user_type_id" ref="account.data_account_type_equity"/>
+        <field name="group_id" ref="l10n_cz.account_group_25"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart252" model="account.account.template">
+        <field name="code">252</field>
+        <field name="name">Vlastní akcie a vlastní obchodní podíly</field>
+        <field name="user_type_id" ref="account.data_account_type_equity"/>
+        <field name="group_id" ref="l10n_cz.account_group_25"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart253" model="account.account.template">
+        <field name="code">253</field>
+        <field name="name">Registrované dluhové cenné papíry k obchodování</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_25"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart255" model="account.account.template">
+        <field name="code">255</field>
+        <field name="name">Vlastní dluhopisy</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_25"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart256" model="account.account.template">
+        <field name="code">256</field>
+        <field name="name">Dluhové cenné papíry se splat. do 1 roku držené do splatnosti</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_25"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart257" model="account.account.template">
+        <field name="code">257</field>
+        <field name="name">Ostatní cenné papíry k obchodování</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_25"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart258" model="account.account.template">
+        <field name="code">258</field>
+        <field name="name">Krátkodobý finanční majetek</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_25"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart261" model="account.account.template">
+        <field name="code">261</field>
+        <field name="name">Peníze na cestě</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_26"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart291" model="account.account.template">
+        <field name="code">291</field>
+        <field name="name">Opravná položka ke krátkodobému finančnímu majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_29"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart311" model="account.account.template">
+        <field name="code">311</field>
+        <field name="name">Pohledávky z obchodních vztahů</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_31"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart312" model="account.account.template">
+        <field name="code">312</field>
+        <field name="name">Směnky k inkasu</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_31"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart313" model="account.account.template">
+        <field name="code">313</field>
+        <field name="name">Pohledávky za eskontované cenné papíry</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_31"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart314" model="account.account.template">
+        <field name="code">314</field>
+        <field name="name">Poskytnuté zálohy - dlouhodobé a krátkodobé</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_31"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart315" model="account.account.template">
+        <field name="code">315</field>
+        <field name="name">Ostatní pohledávky</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_31"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart321" model="account.account.template">
+        <field name="code">321</field>
+        <field name="name">Dodavatelé - závazky z obchodních vztahů</field>
+        <field name="user_type_id" ref="account.data_account_type_payable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_32"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart322" model="account.account.template">
+        <field name="code">322</field>
+        <field name="name">Směnka k úhradě</field>
+        <field name="user_type_id" ref="account.data_account_type_payable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_32"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart324" model="account.account.template">
+        <field name="code">324</field>
+        <field name="name">Přijaté provozní zálohy</field>
+        <field name="user_type_id" ref="account.data_account_type_payable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_32"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart325" model="account.account.template">
+        <field name="code">325</field>
+        <field name="name">Ostatní závazky</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_32"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart331" model="account.account.template">
+        <field name="code">331</field>
+        <field name="name">Zaměstnanci</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_33"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart333" model="account.account.template">
+        <field name="code">333</field>
+        <field name="name">Ostatní závazky vůči zaměstnancům</field>
+        <field name="user_type_id" ref="account.data_account_type_payable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_33"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart335" model="account.account.template">
+        <field name="code">335</field>
+        <field name="name">Pohledávky za zaměstnanci</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_33"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart336" model="account.account.template">
+        <field name="code">336</field>
+        <field name="name">Zúčtování s institucemi sociál. zabezpečení a zdravot. pojištění</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_33"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart341" model="account.account.template">
+        <field name="code">341</field>
+        <field name="name">Daň z příjmů</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_34"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart342" model="account.account.template">
+        <field name="code">342</field>
+        <field name="name">Ostatní přímé daně</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_34"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart343" model="account.account.template">
+        <field name="code">343</field>
+        <field name="name">DPH - Daň z přidané hodnoty</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_34"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart345" model="account.account.template">
+        <field name="code">345</field>
+        <field name="name">Ostatní daně a poplatky</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_34"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart346" model="account.account.template">
+        <field name="code">346</field>
+        <field name="name">Dotace ze státního rozpočtu</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_34"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart347" model="account.account.template">
+        <field name="code">347</field>
+        <field name="name">Ostatní dotace</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_34"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart349" model="account.account.template">
+        <field name="code">349</field>
+        <field name="name">Vyrovnávací účet pro DPH</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_34"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart351" model="account.account.template">
+        <field name="code">351</field>
+        <field name="name">Pohledávky - ovládající a řídící osoba</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_35"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart352" model="account.account.template">
+        <field name="code">352</field>
+        <field name="name">Pohledávky - podstatný vliv</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_35"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart353" model="account.account.template">
+        <field name="code">353</field>
+        <field name="name">Pohledávky za upsaný základní kapitál</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_35"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart354" model="account.account.template">
+        <field name="code">354</field>
+        <field name="name">Pohledávky za společníky při úhradě ztráty</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_35"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart355" model="account.account.template">
+        <field name="code">355</field>
+        <field name="name">Ostatní pohledávky za společníky a členy družstva</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_35"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart358" model="account.account.template">
+        <field name="code">358</field>
+        <field name="name">Pohledávky za účastníky sdružení</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_35"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart361" model="account.account.template">
+        <field name="code">361</field>
+        <field name="name">Závazky - ovládající a řídící osoba</field>
+        <field name="user_type_id" ref="account.data_account_type_payable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_36"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart362" model="account.account.template">
+        <field name="code">362</field>
+        <field name="name">Závazky - podstatný vliv</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_36"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart364" model="account.account.template">
+        <field name="code">364</field>
+        <field name="name">Závazky ke společníkům při rozdělování zisku</field>
+        <field name="user_type_id" ref="account.data_account_type_payable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_36"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart365" model="account.account.template">
+        <field name="code">365</field>
+        <field name="name">Ostatní závazky ke společníkům a členům družstva</field>
+        <field name="user_type_id" ref="account.data_account_type_payable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_36"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart366" model="account.account.template">
+        <field name="code">366</field>
+        <field name="name">Závazky ke společníkům a členům družstva ze závislé činnosti</field>
+        <field name="user_type_id" ref="account.data_account_type_payable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_36"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart367" model="account.account.template">
+        <field name="code">367</field>
+        <field name="name">Závazky z upsaných nesplacených cenných papírů a vkladů</field>
+        <field name="user_type_id" ref="account.data_account_type_payable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_36"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart368" model="account.account.template">
+        <field name="code">368</field>
+        <field name="name">Závazky k účastníkům sdružení</field>
+        <field name="user_type_id" ref="account.data_account_type_payable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_36"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart371" model="account.account.template">
+        <field name="code">371</field>
+        <field name="name">Pohledávky z prodeje podniku</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_37"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart372" model="account.account.template">
+        <field name="code">372</field>
+        <field name="name">Závazky z koupě podniku</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_37"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart373" model="account.account.template">
+        <field name="code">373</field>
+        <field name="name">Pohledávky a závazky z pevných termínových operací</field>
+        <field name="user_type_id" ref="account.data_account_type_fixed_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_37"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart374" model="account.account.template">
+        <field name="code">374</field>
+        <field name="name">Pohledávky z pronájmu</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_37"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart375" model="account.account.template">
+        <field name="code">375</field>
+        <field name="name">Pohledávky z emitovaných dluhopisů</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_37"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart376" model="account.account.template">
+        <field name="code">376</field>
+        <field name="name">Nakoupené opce</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_37"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart377" model="account.account.template">
+        <field name="code">377</field>
+        <field name="name">Prodané opce</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_37"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart378" model="account.account.template">
+        <field name="code">378</field>
+        <field name="name">Jiné pohledávky</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_37"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart379" model="account.account.template">
+        <field name="code">379</field>
+        <field name="name">Jiné závazky</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_37"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart381" model="account.account.template">
+        <field name="code">381</field>
+        <field name="name">Náklady příštích období</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_38"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart382" model="account.account.template">
+        <field name="code">382</field>
+        <field name="name">Komplexní náklady příštích období</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_38"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart383" model="account.account.template">
+        <field name="code">383</field>
+        <field name="name">Výdaje příštích období</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_38"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart384" model="account.account.template">
+        <field name="code">384</field>
+        <field name="name">Výnosy příštích období</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_38"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart385" model="account.account.template">
+        <field name="code">385</field>
+        <field name="name">Příjmy příštích období</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_38"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart388" model="account.account.template">
+        <field name="code">388</field>
+        <field name="name">Dohadné účty aktivní</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_38"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart389" model="account.account.template">
+        <field name="code">389</field>
+        <field name="name">Dohadné účty pasivní</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_38"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart391" model="account.account.template">
+        <field name="code">391</field>
+        <field name="name">Opravná položka k pohledávkám</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_39"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart395" model="account.account.template">
+        <field name="code">395</field>
+        <field name="name">Vnitřní zúčtování</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_39"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart398" model="account.account.template">
+        <field name="code">398</field>
+        <field name="name">Spojovací účet při sdružení</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_39"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart411" model="account.account.template">
+        <field name="code">411</field>
+        <field name="name">Základní kapitál</field>
+        <field name="user_type_id" ref="account.data_account_type_equity"/>
+        <field name="group_id" ref="l10n_cz.account_group_41"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart412" model="account.account.template">
+        <field name="code">412</field>
+        <field name="name">Emisní ažio</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_41"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart413" model="account.account.template">
+        <field name="code">413</field>
+        <field name="name">Ostatní kapitálové fondy</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_41"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart414" model="account.account.template">
+        <field name="code">414</field>
+        <field name="name">Oceňovací rozdíly z přecenění majetku a závazků</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_41"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart417" model="account.account.template">
+        <field name="code">417</field>
+        <field name="name">Rozdíly z přeměn společností</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_41"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart418" model="account.account.template">
+        <field name="code">418</field>
+        <field name="name">Oceňovací rozdíly z přecenění při přeměnách společností</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_41"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart419" model="account.account.template">
+        <field name="code">419</field>
+        <field name="name">Změny základního kapitálu</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_41"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart421" model="account.account.template">
+        <field name="code">421</field>
+        <field name="name">Zákonný rezervní fond</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_42"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart422" model="account.account.template">
+        <field name="code">422</field>
+        <field name="name">Nedělitelný fond</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_42"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart423" model="account.account.template">
+        <field name="code">423</field>
+        <field name="name">Statutární fondy</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_42"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart426" model="account.account.template">
+        <field name="code">426</field>
+        <field name="name">Jiný výsledek hospodaření minulých let</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_42"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart427" model="account.account.template">
+        <field name="code">427</field>
+        <field name="name">Ostatní fondy</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_42"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart428" model="account.account.template">
+        <field name="code">428</field>
+        <field name="name">Nerozdělený zisk minulých let</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_42"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart429" model="account.account.template">
+        <field name="code">429</field>
+        <field name="name">Neuhrazená ztráta minulých let</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_42"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart431" model="account.account.template">
+        <field name="code">431</field>
+        <field name="name">Výsledek hospodaření ve schvalovacím řízení</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_43"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart451" model="account.account.template">
+        <field name="code">451</field>
+        <field name="name">Rezervy podle zvláštních právních předpisů</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_45"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart452" model="account.account.template">
+        <field name="code">452</field>
+        <field name="name">Rezerva na důchody a podobné závazky</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_45"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart453" model="account.account.template">
+        <field name="code">453</field>
+        <field name="name">Rezerva na daň z příjmů</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_45"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart459" model="account.account.template">
+        <field name="code">459</field>
+        <field name="name">Ostatní rezervy</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_45"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart461" model="account.account.template">
+        <field name="code">461</field>
+        <field name="name">Bankovní úvěry</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_46"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart471" model="account.account.template">
+        <field name="code">471</field>
+        <field name="name">Dlouhodobé závazky - ovládající a řídící osoba</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_47"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart472" model="account.account.template">
+        <field name="code">472</field>
+        <field name="name">Dlouhodobé závazky - podstatný vliv</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_47"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart473" model="account.account.template">
+        <field name="code">473</field>
+        <field name="name">Emitované dluhopisy</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_47"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart474" model="account.account.template">
+        <field name="code">474</field>
+        <field name="name">Závazky z pronájmu</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_47"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart475" model="account.account.template">
+        <field name="code">475</field>
+        <field name="name">Dlouhodobé přijaté zálohy</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_47"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart478" model="account.account.template">
+        <field name="code">478</field>
+        <field name="name">Dlouhodobé směnky k úhradě</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_47"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart479" model="account.account.template">
+        <field name="code">479</field>
+        <field name="name">Jiné dlouhodobé závazky</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_47"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart481" model="account.account.template">
+        <field name="code">481</field>
+        <field name="name">Odložený daňový závazek a pohledávka</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_48"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart491" model="account.account.template">
+        <field name="code">491</field>
+        <field name="name">Účet individuálního podnikatele</field>
+        <field name="user_type_id" ref="account.data_account_type_non_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_49"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart501" model="account.account.template">
+        <field name="code">501</field>
+        <field name="name">Spotřeba materiálu</field>
+        <field name="user_type_id" ref="l10n_cz.account_type_cz_expense"/>
+        <field name="group_id" ref="l10n_cz.account_group_50"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart502" model="account.account.template">
+        <field name="code">502</field>
+        <field name="name">Spotřeba energie</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_50"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart503" model="account.account.template">
+        <field name="code">503</field>
+        <field name="name">Spotřeba ostatních neskladovatelných dodávek</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_50"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart504" model="account.account.template">
+        <field name="code">504</field>
+        <field name="name">Prodané zboží</field>
+        <field name="user_type_id" ref="account.data_account_type_direct_costs"/>
+        <field name="group_id" ref="l10n_cz.account_group_50"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart511" model="account.account.template">
+        <field name="code">511</field>
+        <field name="name">Opravy a udržování</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_51"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart512" model="account.account.template">
+        <field name="code">512</field>
+        <field name="name">Cestovné</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_51"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart513" model="account.account.template">
+        <field name="code">513</field>
+        <field name="name">Náklady na reprezentaci</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_51"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart518" model="account.account.template">
+        <field name="code">518</field>
+        <field name="name">Ostatní služby</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_51"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart521" model="account.account.template">
+        <field name="code">521</field>
+        <field name="name">Mzdové náklady</field>
+        <field name="user_type_id" ref="account.data_account_type_direct_costs"/>
+        <field name="group_id" ref="l10n_cz.account_group_52"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart522" model="account.account.template">
+        <field name="code">522</field>
+        <field name="name">Příjmy společníků a členů družstva ze závislé činnosti</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_52"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart523" model="account.account.template">
+        <field name="code">523</field>
+        <field name="name">Odměny členům orgánů společnosti a družstva</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_52"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart524" model="account.account.template">
+        <field name="code">524</field>
+        <field name="name">Zákonné sociální pojištění</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_52"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart525" model="account.account.template">
+        <field name="code">525</field>
+        <field name="name">Ostatní sociální pojištění</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_52"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart526" model="account.account.template">
+        <field name="code">526</field>
+        <field name="name">Sociální náklady individuálního podnikatele</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_52"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart527" model="account.account.template">
+        <field name="code">527</field>
+        <field name="name">Zákonné sociální náklady</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_52"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart528" model="account.account.template">
+        <field name="code">528</field>
+        <field name="name">Ostatní sociální náklady</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_52"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart531" model="account.account.template">
+        <field name="code">531</field>
+        <field name="name">Daň silniční</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_53"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart532" model="account.account.template">
+        <field name="code">532</field>
+        <field name="name">Daň z nemovitostí</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_53"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart538" model="account.account.template">
+        <field name="code">538</field>
+        <field name="name">Ostatní daně a poplatky</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_53"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart541" model="account.account.template">
+        <field name="code">541</field>
+        <field name="name">Zůstatková cena prodaného dlouhodobého nehmotného a hmotného majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_54"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart542" model="account.account.template">
+        <field name="code">542</field>
+        <field name="name">Prodaný materiál</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_54"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart543" model="account.account.template">
+        <field name="code">543</field>
+        <field name="name">Dary</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_54"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart544" model="account.account.template">
+        <field name="code">544</field>
+        <field name="name">Smluvní pokuty a úroky z prodlení</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_54"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart545" model="account.account.template">
+        <field name="code">545</field>
+        <field name="name">Ostatní pokuty a penále</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_54"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart546" model="account.account.template">
+        <field name="code">546</field>
+        <field name="name">Odpis pohledávky</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_54"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart548" model="account.account.template">
+        <field name="code">548</field>
+        <field name="name">Ostatní provozní náklady</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_54"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart549" model="account.account.template">
+        <field name="code">549</field>
+        <field name="name">Manka a škody z provozní činnosti</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_54"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart551" model="account.account.template">
+        <field name="code">551</field>
+        <field name="name">Odpisy dlouhodobého nehmotného a hmotného majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_depreciation"/>
+        <field name="group_id" ref="l10n_cz.account_group_55"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart552" model="account.account.template">
+        <field name="code">552</field>
+        <field name="name">Tvorba a zúčtování rezerv podle zvláštních právních předpisů</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_55"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart554" model="account.account.template">
+        <field name="code">554</field>
+        <field name="name">Tvorba a zúčtování ostatních rezerv</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_55"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart555" model="account.account.template">
+        <field name="code">555</field>
+        <field name="name">Tvorba a zúčtování komplexních nákladů příštích období</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_55"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart557" model="account.account.template">
+        <field name="code">557</field>
+        <field name="name">Zúčtování oprávky k oceňovacímu rozdílu k nabytému majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_55"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart558" model="account.account.template">
+        <field name="code">558</field>
+        <field name="name">Tvorba a zúčtování zákonných opravných položek v provozní činnosti</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_55"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart559" model="account.account.template">
+        <field name="code">559</field>
+        <field name="name">Tvorba a zúčtování opravných položek v provozní činnosti</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_55"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart561" model="account.account.template">
+        <field name="code">561</field>
+        <field name="name">Prodané cenné papíry a podíly</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_56"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart562" model="account.account.template">
+        <field name="code">562</field>
+        <field name="name">Úroky</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_56"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart563" model="account.account.template">
+        <field name="code">563</field>
+        <field name="name">Kurzové ztráty</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_56"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart564" model="account.account.template">
+        <field name="code">564</field>
+        <field name="name">Náklady z přecenění cenných papírů</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_56"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart566" model="account.account.template">
+        <field name="code">566</field>
+        <field name="name">Náklady z finančního majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_56"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart567" model="account.account.template">
+        <field name="code">567</field>
+        <field name="name">Náklady z derivátových operací</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_56"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart568" model="account.account.template">
+        <field name="code">568</field>
+        <field name="name">Ostatní finanční náklady</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_56"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart569" model="account.account.template">
+        <field name="code">569</field>
+        <field name="name">Manka a škody na finančním majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_56"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart574" model="account.account.template">
+        <field name="code">574</field>
+        <field name="name">Tvorba a zúčtování finančních rezerv</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_57"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart579" model="account.account.template">
+        <field name="code">579</field>
+        <field name="name">Tvorba a zúčtování opravných položek ve finanční činnosti</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_57"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart581" model="account.account.template">
+        <field name="code">581</field>
+        <field name="name">Změna stavu nedokončené výroby</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_58"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart582" model="account.account.template">
+        <field name="code">582</field>
+        <field name="name">Změna stavu polotovarů vlastní výroby</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_58"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart583" model="account.account.template">
+        <field name="code">583</field>
+        <field name="name">Změna stavu výrobků</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_58"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart584" model="account.account.template">
+        <field name="code">584</field>
+        <field name="name">Změna stavu zvířat</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_58"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart585" model="account.account.template">
+        <field name="code">585</field>
+        <field name="name">Aktivace materiálu a zboží</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_58"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart586" model="account.account.template">
+        <field name="code">586</field>
+        <field name="name">Aktivace vnitropodnikových služeb</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_58"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart587" model="account.account.template">
+        <field name="code">587</field>
+        <field name="name">Aktivace dlouhodobého nehmotného majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_58"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart588" model="account.account.template">
+        <field name="code">588</field>
+        <field name="name">Aktivace dlouhodobého hmotného majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_58"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart589" model="account.account.template">
+        <field name="code">589</field>
+        <field name="name">Tvorba a zúčtování opravných položek v mimořádné činnosti</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_58"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart591" model="account.account.template">
+        <field name="code">591</field>
+        <field name="name">Daň z příjmů z běžné činnosti - splatná</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_59"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart592" model="account.account.template">
+        <field name="code">592</field>
+        <field name="name">Daň z příjmů z běžné činnosti - odložená</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_59"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart595" model="account.account.template">
+        <field name="code">595</field>
+        <field name="name">Dodatečné odvody daně z příjmů</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_59"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart596" model="account.account.template">
+        <field name="code">596</field>
+        <field name="name">Převod podílu na výsledku hospodaření společníkům</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_59"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart597" model="account.account.template">
+        <field name="code">597</field>
+        <field name="name">Převod provozních nákladů</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_59"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart598" model="account.account.template">
+        <field name="code">598</field>
+        <field name="name">Převod finančních nákladů</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_59"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart599" model="account.account.template">
+        <field name="code">599</field>
+        <field name="name">Rezerva na daň z příjmu</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+        <field name="group_id" ref="l10n_cz.account_group_59"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_02')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart601" model="account.account.template">
+        <field name="code">601</field>
+        <field name="name">Tržby za vlastní výrobky</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_60"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart602" model="account.account.template">
+        <field name="code">602</field>
+        <field name="name">Tržby z prodeje služeb</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_60"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart604" model="account.account.template">
+        <field name="code">604</field>
+        <field name="name">Tržby za zboží</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_60"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart641" model="account.account.template">
+        <field name="code">641</field>
+        <field name="name">Tržby z prodeje dlouhodobého nehmotného a hmotného majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_64"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart642" model="account.account.template">
+        <field name="code">642</field>
+        <field name="name">Tržby z prodeje materiálu</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_64"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart644" model="account.account.template">
+        <field name="code">644</field>
+        <field name="name">Smluvní pokuty a úroky z prodlení</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_64"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart646" model="account.account.template">
+        <field name="code">646</field>
+        <field name="name">Výnosy z odepsaných pohledávek</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_64"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart648" model="account.account.template">
+        <field name="code">648</field>
+        <field name="name">Ostatní provozní výnosy</field>
+        <field name="user_type_id" ref="account.data_account_type_other_income"/>
+        <field name="group_id" ref="l10n_cz.account_group_64"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart661" model="account.account.template">
+        <field name="code">661</field>
+        <field name="name">Tržby z prodeje cenných papírů a podílů</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_66"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart662" model="account.account.template">
+        <field name="code">662</field>
+        <field name="name">Úroky</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_66"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart663" model="account.account.template">
+        <field name="code">663</field>
+        <field name="name">Kursové zisky</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_66"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart664" model="account.account.template">
+        <field name="code">664</field>
+        <field name="name">Výnosy z přecenění cenných papírů</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_66"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart665" model="account.account.template">
+        <field name="code">665</field>
+        <field name="name">Výnosy z dlouhodobého finančního majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_66"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart666" model="account.account.template">
+        <field name="code">666</field>
+        <field name="name">Výnosy z krátkodobého finančního majetku</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_66"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart667" model="account.account.template">
+        <field name="code">667</field>
+        <field name="name">Výnosy z derivátových operací</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_66"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart668" model="account.account.template">
+        <field name="code">668</field>
+        <field name="name">Ostatní finanční výnosy</field>
+        <field name="user_type_id" ref="account.data_account_type_other_income"/>
+        <field name="group_id" ref="l10n_cz.account_group_66"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart697" model="account.account.template">
+        <field name="code">697</field>
+        <field name="name">Převod provozních výnosů</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_69"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart698" model="account.account.template">
+        <field name="code">698</field>
+        <field name="name">Převod finančních výnosů</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+        <field name="group_id" ref="l10n_cz.account_group_69"/>
+        <field name="tag_ids" eval="[(6,0,[ref('l10n_cz.tag_cz_01')])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart701" model="account.account.template">
+        <field name="code">701</field>
+        <field name="name">Počáteční účet rozvažný</field>
+        <field name="user_type_id" ref="l10n_cz.account_type_cz_closing"/>
+        <field name="group_id" ref="l10n_cz.account_group_70"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart702" model="account.account.template">
+        <field name="code">702</field>
+        <field name="name">Konečný účet rozvažný</field>
+        <field name="user_type_id" ref="l10n_cz.account_type_cz_closing"/>
+        <field name="group_id" ref="l10n_cz.account_group_70"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart710" model="account.account.template">
+        <field name="code">710</field>
+        <field name="name">Účet zisků a ztrát</field>
+        <field name="user_type_id" ref="l10n_cz.account_type_cz_closing"/>
+        <field name="group_id" ref="l10n_cz.account_group_71"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart751" model="account.account.template">
+        <field name="code">751</field>
+        <field name="name">Majetek hmotný a nehmotný, neuvedený v rozvaze</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_75"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart752" model="account.account.template">
+        <field name="code">752</field>
+        <field name="name">Zásoby</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_75"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart753" model="account.account.template">
+        <field name="code">753</field>
+        <field name="name">Pohledávky</field>
+        <field name="user_type_id" ref="account.data_account_type_receivable"/>
+        <field name="reconcile" eval="True"/>
+        <field name="group_id" ref="l10n_cz.account_group_75"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart761" model="account.account.template">
+        <field name="code">761</field>
+        <field name="name">Závazky z finančního leasingu</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_76"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart762" model="account.account.template">
+        <field name="code">762</field>
+        <field name="name">Závazky z titulu ručení, zástavního práva, věcná břemena, převedená a poskytnutá zajištění zástavního práva</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_76"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart763" model="account.account.template">
+        <field name="code">763</field>
+        <field name="name">Závazky z bankovních záruk</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liabilities"/>
+        <field name="group_id" ref="l10n_cz.account_group_76"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart771" model="account.account.template">
+        <field name="code">771</field>
+        <field name="name">Finanční deriváty</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets"/>
+        <field name="group_id" ref="l10n_cz.account_group_77"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart772" model="account.account.template">
+        <field name="code">772</field>
+        <field name="name">Opce</field>
+        <field name="user_type_id" ref="l10n_cz.account_type_cz_closing"/>
+        <field name="group_id" ref="l10n_cz.account_group_77"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="chart799" model="account.account.template">
+        <field name="code">799</field>
+        <field name="name">Evidenční účet k podrozvahovým účtům</field>
+        <field name="user_type_id" ref="l10n_cz.account_type_cz_off_sheet"/>
+        <field name="group_id" ref="l10n_cz.account_group_79"/>
+        <field name="tag_ids" eval="[(6,0,[])]"/>
+        <field name="chart_template_id" ref="l10n_cz.czech_chart_template"/>
+    </record>
+
+    <record id="czech_chart_template" model="account.chart.template">
+        <field name="property_account_receivable_id" ref="l10n_cz.chart311"/>
+        <field name="default_pos_receivable_account_id" ref="l10n_cz.chart311"/>
+        <field name="property_account_payable_id" ref="l10n_cz.chart321"/>
+        <field name="property_account_expense_categ_id" ref="l10n_cz.chart131"/>
+        <field name="property_account_income_categ_id" ref="l10n_cz.chart604"/>
+        <field name="property_stock_account_input_categ_id" ref="l10n_cz.chart132"/>
+        <field name="property_stock_account_output_categ_id" ref="l10n_cz.chart132"/>
+        <field name="property_stock_valuation_account_id" ref="l10n_cz.chart131"/>
+    </record>
+</odoo>
