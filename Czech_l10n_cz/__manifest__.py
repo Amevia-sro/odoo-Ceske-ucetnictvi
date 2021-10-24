@@ -4,7 +4,6 @@
     'category': 'Localization',
     'author': 'Amevia s.r.o.',
     "website" : "https://www.amevia.eu",
-    'summary': 'This module adds the Czech accounting-charts of accounts,fiscal possitions,VAT taxes',
     'description': """ 
 This is the module to manage the accounting chart for Czech Republic in Odoo.
 ==================================================================================
